@@ -15,7 +15,9 @@ class RoleRepository extends BaseRepository implements RoleRepositoryInterface
 
     public function create(array $input): ? Model
     {
-        $model=$this->model->create($input);
+//        $role = Role::create(['guard_name' => 'admin', 'name' => $request->input('name')]);
+//        $role->syncPermissions($request->input('permission'));
+        $model=$this->model->create(['guard_name' => 'admin', 'name' => $input['name']]);
         $model->syncPermissions($input['permission']);
         return $this->model->fresh();
     }

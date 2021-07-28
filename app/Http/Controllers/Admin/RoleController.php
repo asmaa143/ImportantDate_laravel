@@ -35,9 +35,9 @@ class RoleController extends Controller
 
     public function store(StoreRoleRequest $request)
     {
-      // $this->role->create(['guard_name' => 'admin', 'name' => $request->input('name')]);
-        $role = Role::create(['guard_name' => 'admin', 'name' => $request->input('name')]);
-        $role->syncPermissions($request->input('permission'));
+      $this->role->create($request->all());
+//        $role = Role::create(['guard_name' => 'admin', 'name' => $request->input('name')]);
+//        $role->syncPermissions($request->input('permission'));
         return redirect()->route('admin.roles.index')->with(['success'=>'Role Created successfully']);
     }
 
