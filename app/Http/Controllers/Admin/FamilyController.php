@@ -7,6 +7,9 @@ use App\Http\Requests\Admin\StoreFamilyRequest;
 use App\Models\Family;
 use App\Models\Nationality;
 use App\Models\User;
+use App\Repository\FamilyRepositoryInterface;
+use App\Repository\NationalityRepositoryInterface;
+use App\Repository\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Traits\ImageTrait;
 
@@ -14,17 +17,27 @@ class FamilyController extends Controller
 {
     use ImageTrait;
 
+    private $family,$nationality,$user;
+
+    public function __construct(FamilyRepositoryInterface $familyRepository,NationalityRepositoryInterface $nationalityRepository,UserRepositoryInterface $userRepository)
+    {
+        $this->family = $familyRepository;
+        $this->nationality = $nationalityRepository;
+        $this->user = $userRepository;
+    }
+
     public function index()
     {
-        $family = Family::all();
+        $family = $this->family->all();
         return view('dashboard.family.index', compact('family'));
     }
 
 
     public function create_family($id)
     {
-        $nationality = Nationality::all();
-        $user = User::findOrFail($id);
+        $nationality =$this->nationality->all();
+        $user =$this->user->findById($id);
+        //$user = User::findOrFail($id);
         return view('dashboard.family.create', compact('nationality', 'user'));
     }
 
@@ -90,7 +103,8 @@ class FamilyController extends Controller
 
     public function show($id)
     {
-        $family = Family::findOrFail($id);
+        //$family = Family::findOrFail($id);
+        $family =$this->family->findById($id);
         return view('dashboard.family.show', compact('family'));
     }
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreUserRequest;
 use App\Models\Date;
+use App\Repository\NationalityRepositoryInterface;
+use App\Repository\UserRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 use Image;
 use App\Models\Nationality;
@@ -17,26 +19,36 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     use ImageTrait;
+    private $user,$nationality;
+
+    public function __construct(UserRepositoryInterface $user,NationalityRepositoryInterface $nationalityRepository)
+    {
+        $this->user = $user;
+        $this->nationality = $nationalityRepository;
+    }
+
 
     public function index()
     {
-        $users = User::all();
+        $users = $this->user->all();
+//        $users = User::all();
         return view('dashboard.user.index', compact('users'));
     }
 
 
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        //$user = User::findOrFail($id);
+        $user =$this->user->findById($id);
         return view('dashboard.user.show', compact('user'));
     }
 
 
     public function create()
     {
-        $nationality = Nationality::all();
-        $date = Date::all();
-        return view('dashboard.user.create', compact('nationality', 'date'));
+        $nationality = $this->nationality->all();
+        //$date = Date::all();
+        return view('dashboard.user.create', compact('nationality'));
     }
 
     public function store(StoreUserRequest $request)
