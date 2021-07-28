@@ -11,4 +11,5 @@ interface RoleRepositoryInterface
 {
     public function __construct(Role $admin);
     public function create(array $input): ? Model;
+    public function update(array $data, $id): bool;
 }
