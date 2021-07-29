@@ -152,7 +152,7 @@
                                                     <label for="personalCard"
                                                            class="col-sm-3 control-label">personalCard</label>
                                                         <input type="file" class="form-control" id="personalCard"
-                                                               name="personalCard" value="{{old('personalCard')}}">
+                                                               name="photo[personalCard]">
                                                 </div>
                                             </div>
 
@@ -161,7 +161,7 @@
                                                     <label for="birth"
                                                            class="col-sm-3 control-label">Birth</label>
                                                     <input type="file" class="form-control" id="birth"
-                                                           name="birth" value="{{old('birth')}}">
+                                                           name="photo[birth]" >
                                                 </div>
                                             </div>
 
@@ -170,7 +170,7 @@
                                                     <label for="residence"
                                                            class="col-sm-3 control-label">Residence</label>
                                                     <input type="file" class="form-control" id="residence"
-                                                           name="residence" value="{{old('residence')}}">
+                                                           name="photo[residence]" >
                                                 </div>
                                             </div>
                                         </div>
@@ -180,8 +180,8 @@
                                                     <h2 class="card-inside-title">IDDate</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date1" class="form-control"
-                                                                   placeholder="dd-mm-yyyy" value="{{old('date1')}}">
+                                                            <input type="date" name="date[ID]" class="form-control"
+                                                                   placeholder="dd-mm-yyyy" value="{{old('date[ID]')}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -191,8 +191,8 @@
                                                     <h2 class="card-inside-title">Residence Date</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date2" class="form-control"
-                                                                   placeholder="dd-mm-yyyy" value="{{old('date2')}}">
+                                                            <input type="date" name="date[residence]" class="form-control"
+                                                                   placeholder="dd-mm-yyyy" value="{{old('date[residence]')}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -202,8 +202,8 @@
                                                     <h2 class="card-inside-title">licence Date</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date3" class="form-control"
-                                                                   placeholder="dd-mm-yyyy" value="{{old('date3')}}">
+                                                            <input type="date" name="date[licence]" class="form-control"
+                                                                   placeholder="dd-mm-yyyy" value="{{old('date[licence]')}}">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -214,8 +214,8 @@
                                                     <h2 class="card-inside-title">Car Date</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date4" class="form-control"
-                                                                   placeholder="dd-mm-yyyy" value="{{old('date4')}}">
+                                                            <input type="date" name="date[car]" class="form-control"
+                                                                   placeholder="dd-mm-yyyy" value="{{old('date[car]')}}">
                                                         </div>
                                                     </div>
                                                 </div>

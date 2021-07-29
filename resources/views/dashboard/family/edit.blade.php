@@ -99,7 +99,7 @@
                                                     <label for="birth"
                                                            class="col-sm-3 control-label">Birth</label>
                                                     <input type="file" class="form-control" id="birth"
-                                                           name="birth" value="{{old('birth')}}">
+                                                           name="birth" value="">
                                                 </div>
                                             </div>
 
@@ -108,7 +108,7 @@
                                                     <label for="residence"
                                                            class="col-sm-3 control-label">Residence</label>
                                                     <input type="file" class="form-control" id="residence"
-                                                           name="residence" value="{{old('residence')}}">
+                                                           name="residence" value="">
                                                 </div>
                                             </div>
                                         </div>
@@ -118,7 +118,7 @@
                                                     <h2 class="card-inside-title">IDDate</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date1" class="form-control"
+                                                            <input type="date" name="date[ID]" class="form-control"
                                                                    placeholder="dd-mm-yyyy"  @if($family->IDDate->count()>0) value="{{$family->IDDate->first()->date}}" @endif>
                                                         </div>
                                                     </div>
@@ -129,7 +129,7 @@
                                                     <h2 class="card-inside-title">Residence Date</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date2" class="form-control"
+                                                            <input type="date" name="date[residence]" class="form-control"
                                                                    placeholder="dd-mm-yyyy" @if($family->residenceDate->count()>0) value="{{$family->residenceDate->first()->date}}" @endif>
                                                         </div>
                                                     </div>
@@ -140,7 +140,7 @@
                                                     <h2 class="card-inside-title">licence Date</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date3" class="form-control"
+                                                            <input type="date" name="date[licence]" class="form-control"
                                                                    placeholder="dd-mm-yyyy"  @if($family->licenceDate->count()>0) value="{{$family->licenceDate->first()->date}}" @endif>
                                                         </div>
                                                     </div>
@@ -152,7 +152,7 @@
                                                     <h2 class="card-inside-title">Car Date</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date4" class="form-control"
+                                                            <input type="date" name="date[car]" class="form-control"
                                                                    placeholder="dd-mm-yyyy" @if($family->carDate->count()>0) value="{{$family->carDate->first()->date}}" @endif>
                                                         </div>
                                                     </div>

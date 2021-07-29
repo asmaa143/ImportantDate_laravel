@@ -140,7 +140,7 @@
                                                         <label for="residence"
                                                                class="col-sm-3 control-label">Residence</label>
                                                         <input type="file" class="form-control" id="residence"
-                                                               name="residence[]" value="{{old('residence[]')}}">
+                                                               name="residence[]" value="">
                                                     </div>
                                                 </div>
                                             </div>

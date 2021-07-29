@@ -180,7 +180,7 @@
                                                     <h2 class="card-inside-title">IDDate</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date1" class="form-control"
+                                                            <input type="date" name="date[ID]" class="form-control"
                                                                    placeholder="dd-mm-yyyy"  @if($user->IDDate->count()>0) value="{{$user->IDDate->first()->date}}" @endif>
                                                         </div>
                                                     </div>
@@ -191,7 +191,7 @@
                                                     <h2 class="card-inside-title">Residence Date</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date2" class="form-control"
+                                                            <input type="date" name="date[residence]" class="form-control"
                                                                    placeholder="dd-mm-yyyy" @if($user->residenceDate->count()>0) value="{{$user->residenceDate->first()->date}}" @endif>
                                                         </div>
                                                     </div>
@@ -202,7 +202,7 @@
                                                     <h2 class="card-inside-title">licence Date</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date3" class="form-control"
+                                                            <input type="date" name="date[licence]" class="form-control"
                                                                    placeholder="dd-mm-yyyy"  @if($user->licenceDate->count()>0) value="{{$user->licenceDate->first()->date}}" @endif>
                                                         </div>
                                                     </div>
@@ -214,7 +214,7 @@
                                                     <h2 class="card-inside-title">Car Date</h2>
                                                     <div class="input-group date" id="bs_datepicker_component_container">
                                                         <div class="form-line">
-                                                            <input type="date" name="date4" class="form-control"
+                                                            <input type="date" name="date[car]" class="form-control"
                                                                    placeholder="dd-mm-yyyy" @if($user->carDate->count()>0) value="{{$user->carDate->first()->date}}" @endif>
                                                         </div>
                                                     </div>
