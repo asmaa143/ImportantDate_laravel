@@ -26,7 +26,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'first_name'=>'required|min:5|max:60',
             'last_name'=>'max:60',
-            'email' => 'required|unique:App\Models\User,email',
+            'email' => 'required',
             'phone_number'=>'nullable|min:11|numeric',
             'password' => 'nullable|confirmed',
             'address'=>'required',

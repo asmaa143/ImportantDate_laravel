@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\StoreUserRequest;
+use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Repository\NationalityRepositoryInterface;
 use App\Repository\UserRepositoryInterface;
 use Image;
 use App\Models\User;
 use App\Traits\ImageTrait;
 use Illuminate\Http\Request;
-
-
 
 class UserController extends Controller
 {
@@ -43,7 +43,7 @@ class UserController extends Controller
         return view('dashboard.user.create', compact('nationality'));
     }
 
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
         $this->user->create($request->all());
         return redirect()->route('admin.users.index');
@@ -59,7 +59,7 @@ class UserController extends Controller
     }
 
 
-    public function update(Request $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
         $this->user->updateUser($request->all(),$user->id);
         return redirect()->route('admin.users.index');

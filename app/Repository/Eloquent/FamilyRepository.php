@@ -7,6 +7,7 @@ use App\Models\Family;
 use App\Repository\FamilyRepositoryInterface;
 use App\Traits\ImageTrait;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class FamilyRepository extends BaseRepository implements FamilyRepositoryInterface
 {
@@ -20,6 +21,8 @@ class FamilyRepository extends BaseRepository implements FamilyRepositoryInterfa
 
     public function create(array $data): ?Model
     {
+        DB::beginTransaction();
+        try{
         $first_name = $data['first_name'];
         $last_name = $data['last_name'];
         $address = $data['address'];
@@ -89,6 +92,14 @@ class FamilyRepository extends BaseRepository implements FamilyRepositoryInterfa
             }
 
         }
+        }
+        catch (\Exception $e){
+            DB::rollBack();
+            throw new \Exception($e->getMessage());
+        }
+
+        DB::commit();
+
         return $family;
     }
 
@@ -111,6 +122,8 @@ class FamilyRepository extends BaseRepository implements FamilyRepositoryInterfa
     function updateFamily(array $data, $id)
     {
         $family = $this->model->findOrFail($id);
+        DB::beginTransaction();
+        try{
 
         $requested_data = collect($data)->except(['date[ID]', 'date[residence]', 'date[licence]', 'date[car]', 'birth', 'residence', 'personalCard']);
 
@@ -135,6 +148,13 @@ class FamilyRepository extends BaseRepository implements FamilyRepositoryInterfa
                 $family->dates()->updateOrCreate($data, ['date' => $date]);
             }
         }
+        }
+        catch (\Exception $e){
+            DB::rollBack();
+            throw new \Exception($e->getMessage());
+        }
+
+        DB::commit();
 
 
     }
@@ -162,5 +182,6 @@ class FamilyRepository extends BaseRepository implements FamilyRepositoryInterfa
         $family->licenceDate()->delete();
         $family->carDate()->delete();
         $family->delete();
+
     }
 }

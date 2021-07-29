@@ -2,8 +2,10 @@
 
 
 namespace App\Repository\Eloquent;
+
 use App\Repository\RoleRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 
 class RoleRepository extends BaseRepository implements RoleRepositoryInterface
@@ -13,10 +15,26 @@ class RoleRepository extends BaseRepository implements RoleRepositoryInterface
         parent::__construct($role);
     }
 
-    public function create(array $input): ? Model
+    public function getRole()
     {
-        $model=$this->model->create(['guard_name' => 'admin', 'name' => $input['name']]);
-        $model->syncPermissions($input['permission']);
+        return $this->model->pluck('name','id');
+    }
+
+    public function create(array $input): ?Model
+    {
+        DB::beginTransaction();
+        try {
+            $model = $this->model->create(['guard_name' => 'admin', 'name' => $input['name']]);
+            if (isset($input['permission'])) {
+                $model->syncPermissions($input['permission']);
+            }
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw new \Exception($e->getMessage());
+        }
+
+        DB::commit();
+
         return $this->model->fresh();
     }
 

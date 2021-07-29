@@ -27,7 +27,7 @@ class StoreAdminRequest extends FormRequest
             'email' => 'required|unique:App\Models\Admin,email',
             'phone'=>'nullable|min:11|numeric',
             'password' => 'required|confirmed',
-            'roles' => 'required',
+            'roles' => 'nullable',
         ];
     }
 

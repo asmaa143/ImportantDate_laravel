@@ -72,29 +72,38 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     {
         $user=$this->model->findOrFail($id);
 
-        $requested_data = collect($data)->except(['date[ID]', 'date[residence]', 'date[licence]', 'date[car]','birth','residence','personalCard']);
-        $user->update($requested_data->toArray());
+        DB::beginTransaction();
+        try {
+            $requested_data = collect($data)->except(['date[ID]', 'date[residence]', 'date[licence]', 'date[car]', 'birth', 'residence', 'personalCard']);
+            $user->update($requested_data->toArray());
 
-        if ( isset($data['birth'])) {
-            $this->image($user->birth->count(), $user, $data['birth'], 'birth');
-        }
+            if (isset($data['birth'])) {
+                $this->image($user->birth->count(), $user, $data['birth'], 'birth');
+            }
 
-        if (isset($data['residence'])) {
-            $this->image($user->residence->count(), $user, $data['residence'], 'residence');
-        }
+            if (isset($data['residence'])) {
+                $this->image($user->residence->count(), $user, $data['residence'], 'residence');
+            }
 
-        if (isset($data['personalCard'])) {
+            if (isset($data['personalCard'])) {
 
-            $this->image($user->personalCard->count(), $user, $data['personalCard'], 'personalCard');
-        }
+                $this->image($user->personalCard->count(), $user, $data['personalCard'], 'personalCard');
+            }
 
-        if(isset($data['date']))
-        {
-            foreach (array_filter($data['date']) as $type => $date) {
-                $data = ['type' => $type];
-                $user->dates()->updateOrCreate($data, ['date' => $date]);
+            if (isset($data['date'])) {
+                foreach (array_filter($data['date']) as $type => $date) {
+                    $data = ['type' => $type];
+                    $user->dates()->updateOrCreate($data, ['date' => $date]);
+                }
             }
         }
+        catch (\Exception $e){
+            DB::rollBack();
+            throw new \Exception($e->getMessage());
+        }
+
+        DB::commit();
+
 
         return $user;
     }
@@ -124,5 +133,6 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         $user->licenceDate()->delete();
         $user->carDate()->delete();
         $user->delete();
+
     }
 }

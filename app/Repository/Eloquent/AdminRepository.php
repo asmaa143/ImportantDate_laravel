@@ -6,6 +6,7 @@ namespace App\Repository\Eloquent;
 use App\Models\Admin;
 use App\Repository\AdminRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminRepository extends BaseRepository implements AdminRepositoryInterface
@@ -15,10 +16,20 @@ class AdminRepository extends BaseRepository implements AdminRepositoryInterface
         parent::__construct($admin);
     }
 
-    public function create(array $input): ? Model
+    public function create(array $input): ?Model
     {
-        $model=$this->model->create($input);
-        $model->assignRole($input['roles']);
+        DB::beginTransaction();
+        try {
+            $model = $this->model->create($input);
+            if (isset($input['roles'])) {
+                $model->assignRole($input['roles']);
+            }
+        } catch (\Exception $e) {
+            DB::rollBack();
+            throw new \Exception($e->getMessage());
+        }
+
+        DB::commit();
         return $model->fresh();
     }
 
@@ -39,7 +50,7 @@ class AdminRepository extends BaseRepository implements AdminRepositoryInterface
     }
 
 
-     public function delete($admin) : bool
+    public function delete($admin): bool
     {
         $record = $this->model->find($admin);
         return $record->delete();
