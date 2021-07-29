@@ -17,9 +17,9 @@ class FamilyController extends Controller
 {
     use ImageTrait;
 
-    private $family,$nationality,$user;
+    private $family, $nationality, $user;
 
-    public function __construct(FamilyRepositoryInterface $familyRepository,NationalityRepositoryInterface $nationalityRepository,UserRepositoryInterface $userRepository)
+    public function __construct(FamilyRepositoryInterface $familyRepository, NationalityRepositoryInterface $nationalityRepository, UserRepositoryInterface $userRepository)
     {
         $this->family = $familyRepository;
         $this->nationality = $nationalityRepository;
@@ -35,8 +35,8 @@ class FamilyController extends Controller
 
     public function create_family($id)
     {
-        $nationality =$this->nationality->all();
-        $user =$this->user->findById($id);
+        $nationality = $this->nationality->all();
+        $user = $this->user->findById($id);
         //$user = User::findOrFail($id);
         return view('dashboard.family.create', compact('nationality', 'user'));
     }
@@ -104,7 +104,7 @@ class FamilyController extends Controller
     public function show($id)
     {
         //$family = Family::findOrFail($id);
-        $family =$this->family->findById($id);
+        $family = $this->family->findById($id);
         return view('dashboard.family.show', compact('family'));
     }
 
@@ -116,19 +116,19 @@ class FamilyController extends Controller
     }
 
 
-    function image( $count,$family,$image , $type){
+    function image($count, $family, $image, $type)
+    {
 
-            if ($count > 0) {
-                $this->deleteImage($family->birth->first()->src, 'dashboard/photo/');
-                $image2 = $this->saveImage($image, 'Upload/dashboard/photo/');
-                $family->photos()->updateOrCreate(['type' => $type], ['src' => $image2]);
-            } else {
-                $image2 = $this->saveImage($image, 'Upload/dashboard/photo/');
-                $family->photos()->create(['src' => $image2, 'type' => $type]);
-            }
-
+        if ($count > 0) {
+            $this->deleteImage($family->birth->first()->src, 'dashboard/photo/');
+            $image2 = $this->saveImage($image, 'Upload/dashboard/photo/');
+            $family->photos()->updateOrCreate(['type' => $type], ['src' => $image2]);
+        } else {
+            $image2 = $this->saveImage($image, 'Upload/dashboard/photo/');
+            $family->photos()->create(['src' => $image2, 'type' => $type]);
         }
 
+    }
 
 
     public function update(Request $request, Family $family)
@@ -137,7 +137,7 @@ class FamilyController extends Controller
 
         $family->update($requested_data);
         if ($request->hasFile('birth')) {
-            $this->image($family->birth->count(),$family,$request->birth,'birth');
+            $this->image($family->birth->count(), $family, $request->birth, 'birth');
         }
 
         if ($request->hasFile('residence')) {
