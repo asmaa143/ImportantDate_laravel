@@ -36,8 +36,6 @@ Route::resource('users', 'UserController');
 Route::resource('families', 'FamilyController');
 Route::get('families/create/{id}','FamilyController@create_family')->name('family-create');
 Route::resource('date-setup','DateSetupController');
+Route::resource('page','PageController');
 
-Route::get('carbon',function (){
-
-});
 Route::get('lang/{locale}', 'LocalizationController@index')->name('lang');

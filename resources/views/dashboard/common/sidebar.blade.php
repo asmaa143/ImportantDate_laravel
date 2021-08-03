@@ -94,6 +94,12 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{route('admin.page.index')}}">
+                        <i class="material-icons">description</i>
+                        <span>{{__('Pages')}}</span>
+                    </a>
+                </li>
 
 
                 {{--                <li>--}}

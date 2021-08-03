@@ -103,6 +103,11 @@
 <!-- Waves Effect Plugin Js -->
 <script src="{{asset('dashboard/theme')}}/plugins/node-waves/waves.js"></script>
 
+<!-- Ckeditor -->
+<script src="{{asset('dashboard/theme')}}/plugins/ckeditor/ckeditor.js"></script>
+
+
+
 <!-- Autosize Plugin Js -->
 <script src="{{asset('dashboard/theme')}}/plugins/autosize/autosize.js"></script>
 
@@ -131,6 +136,8 @@
 {{--<script src="{{asset('dashboard/theme')}}/js/pages/forms/basic-form-elements.js"></script>--}}
 <script src="{{asset('dashboard/theme')}}/js/pages/tables/jquery-datatable.js"></script>
 <script src="{{asset('dashboard/theme')}}/js/pages/forms/form-wizard.js"></script>
+<script src="{{asset('dashboard/theme')}}/js/pages/forms/editors.js"></script>
+
 
 
 <!-- Demo Js -->

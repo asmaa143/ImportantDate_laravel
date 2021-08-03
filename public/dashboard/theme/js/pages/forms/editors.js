@@ -3,6 +3,8 @@ $(function () {
     CKEDITOR.replace('ckeditor');
     CKEDITOR.config.height = 300;
 
+
+
     //TinyMCE
     tinymce.init({
         selector: "textarea#tinymce",
@@ -21,3 +23,5 @@ $(function () {
     tinymce.suffix = ".min";
     tinyMCE.baseURL = '../../plugins/tinymce';
 });
+
+
