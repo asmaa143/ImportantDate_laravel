@@ -16,7 +16,7 @@ class CheckPassword
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->api_password != env("API_PASSWORD",'password')){
+        if($request->api_password !== env("API_PASSWORD",'password')){
             return response()->json(['message'=>'Unauthenticated']);
         }
         return $next($request);

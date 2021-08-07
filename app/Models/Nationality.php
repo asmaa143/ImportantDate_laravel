@@ -24,6 +24,13 @@ class Nationality extends Model
     ];
 
 
+//    public function scopeSelection($query)
+//    {
+//        return $query->select('id', 'name_' . app()->getLocale() . ' as namew');
+//    }
+
+
+
     public function getNameAttribute()
     {
         return Lang::locale() == 'ar' ? $this->name_ar : $this->name_en;

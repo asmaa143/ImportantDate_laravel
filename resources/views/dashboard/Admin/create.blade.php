@@ -70,7 +70,7 @@
                                             <div class="col-sm-6" style="margin-left: 25px">
                                                 <label for="roles">Rule Select</label>
                                                 <div class="select">
-                                                    <select id="roles" name="roles">
+                                                    <select id="roles" name="roles" class="form-control">
                                                         <option value="">Select Rule</option>
                                                         @foreach($roles as  $id=>$role)
                                                             <option value="{{$id}}" >{{$role}}</option>
