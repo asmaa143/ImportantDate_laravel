@@ -34,29 +34,9 @@ class AuthApiController extends Controller
     }
 
 
-    public function register(Request $request)
+    public function register(StoreUserRequest  $request)
     {
         try {
-        $rules=[
-            'first_name'=>'required|min:2|max:60',
-            'last_name'=>'max:60',
-            'email' => 'required|unique:App\Models\User,email',
-            'phone_number'=>'nullable|min:11|numeric',
-            'password' => 'required|confirmed',
-            'address'=>'required',
-            'nationality_id'=>'required|exists:nationalities,id',
-            'has_wife'=>'boolean|nullable',
-            'has_sons'=>'boolean|nullable',
-            'has_driver'=>'boolean|nullable',
-            'has_servant'=>'boolean|nullable',
-        ];
-
-        $validator = \Validator::make($request->all(),$rules);
-        if($validator->fails())
-        {
-            return $this->returnValidationError($validator);
-        }
-
         $user=User::create($request->all());
 
         $token=$user->createToken('my-app-token')->plainTextToken;

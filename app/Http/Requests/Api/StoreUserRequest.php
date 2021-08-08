@@ -3,7 +3,10 @@
 namespace App\Http\Requests\Api;
 
 use App\Traits\ApiTrait;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
+
 
 class StoreUserRequest extends FormRequest
 {
@@ -25,7 +28,7 @@ class StoreUserRequest extends FormRequest
      */
     public function rules()
     {
-       $rules= [
+        return[
             'first_name'=>'required|min:2|max:60',
             'last_name'=>'max:60',
             'email' => 'required|unique:App\Models\User,email',
@@ -38,10 +41,13 @@ class StoreUserRequest extends FormRequest
             'has_driver'=>'boolean|nullable',
             'has_servant'=>'boolean|nullable',
         ];
-       return $rules;
+
     }
 
-
+    public function failedValidation(Validator $validator)
+    {
+        throw new ValidationException($validator,$this->returnValidationError($validator)) ;
+    }
 
 
 }

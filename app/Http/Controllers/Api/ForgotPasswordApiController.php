@@ -29,15 +29,14 @@ class ForgotPasswordApiController extends Controller
             ], 404);
         }
         $token = Str::random(64);
-        $code = Str::random(4);
+        $code = rand(1000,9999);
         $created_at = Carbon::now();
         try {
-            DB::table('user_password_resets')->insert([
-                'email' => $email,
-                'token' => $token,
+            UserPasswordResets::updateOrCreate(
+                ['email' => $email],
+                ['token' => $token,
                 'code' => $code,
-                'created_at' => $created_at
-            ]);
+                'created_at' => $created_at]);
 
             Mail::send('email.reset-code', ['code' => $code], function (Message $message) use ($email) {
                 $message->to($email);
@@ -61,31 +60,29 @@ class ForgotPasswordApiController extends Controller
             'code' => 'required'
         ]);
         $code = $request->input('code');
-         //$date = Carbon::now()->addSeconds(0.5)->format('Y-m-d H:i:s');
-        // $formatted = $date->format('Y-m-d H:i:s');
-        $date2 = Carbon::now()->addSeconds(10)->format('Y-m-d H:i:s');
-        $created_at=DB::table('user_password_resets')
-            ->where('code', $code)->first()->created_at;
-
         if (!$passwordResets = DB::table('user_password_resets')
             ->where('code', $code)
-            ->whereBetween(DB::raw('DATE(created_at)'), array($created_at, $date2))
             ->first()) {
             return response([
                 "message" => 'Invalid Code!'
             ], 404);
         }
-
-
-
         if (!User::where('email', $passwordResets->email)->first()) {
             return response([
                 'message' => 'User doen\'t exists!'
             ], 404);
         }
-
+        $code1=UserPasswordResets::where('code',$code)->first();
+        if(!$code1->created_at->addSeconds(60)->gt(now())){
+            return response([
+                "message" => 'Expired Code!'
+            ], 404);
+        }
+        //$user=User::where('email', $passwordResets->email)->first();
+       // $token=$user->createToken('my-app-token')->plainTextToken;
         return response([
-            'message' => 'Success'
+            'message' => 'Success',
+//            'token'=>$token
         ]);
 
     }

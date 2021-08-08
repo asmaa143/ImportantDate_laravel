@@ -19,15 +19,14 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::group(['middleware'=>['api','checkPassword','changeLang','auth:sanctum']],function (){
+Route::group(['middleware'=>['api','changeLang','auth:sanctum']],function (){
 
-    //Route::post('/get-users','UserAPIController@index');
     Route::post('nationalities','NationalityApiController@index');
     Route::post('dates-type','DateTypeApiController@index');
     Route::post('gender','MainApiController@gender');
     Route::post('change-password','UserProfileApiController@changePassword');
-    //Route::post('delete-account','SettingApiController@delete_account');
-    //Route::post('get-nationality-byId', 'UserAPIController@getNationalityById');
+    Route::apiResource('user','UserAPIController');
+    Route::apiResource('family','FamilyApiController');
     Route::post("logout",'AuthApiController@logout');
 
 });
