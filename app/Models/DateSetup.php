@@ -24,4 +24,10 @@ class DateSetup extends Model
         'number',
         'frequency',
     ];
+
+    public function events(){
+        return $this->hasMany(Event::class, 'type_id', 'id');
+    }
+
+
 }

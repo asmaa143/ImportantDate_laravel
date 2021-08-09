@@ -67,6 +67,10 @@ class User extends Authenticatable
         return $this->hasMany(Family::class, 'user_id', 'id');
     }
 
+    public function events(){
+        return $this->hasMany(Event::class, 'user_id', 'id');
+    }
+
     public function photos()
     {
         return $this->morphMany(Photo::class, 'photoable');

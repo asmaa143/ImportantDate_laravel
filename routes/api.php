@@ -27,6 +27,7 @@ Route::group(['middleware'=>['api','changeLang','auth:sanctum']],function (){
     Route::post('change-password','UserProfileApiController@changePassword');
     Route::apiResource('user','UserAPIController');
     Route::apiResource('family','FamilyApiController');
+    Route::get('event','EventApiController@getAll');
     Route::post("logout",'AuthApiController@logout');
 
 });
