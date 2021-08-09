@@ -87,6 +87,14 @@
                     </a>
                 </li>
 
+
+                <li>
+                    <a href="{{route('admin.event.index')}}">
+                        <i class="material-icons">event</i>
+                        <span>{{__('User Events')}}</span>
+                    </a>
+                </li>
+
                 <li>
                     <a href="{{route('admin.date-setup.index')}}">
                         <i class="material-icons">date_range</i>
