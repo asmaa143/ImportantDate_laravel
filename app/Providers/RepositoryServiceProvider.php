@@ -7,11 +7,13 @@ use App\Repository\DateSetupRepositoryInterface;
 use App\Repository\Eloquent\AdminRepository;
 use App\Repository\Eloquent\BaseRepository;
 use App\Repository\Eloquent\DateSetupRepository;
+use App\Repository\Eloquent\EventRepository;
 use App\Repository\Eloquent\FamilyRepository;
 use App\Repository\Eloquent\NationalityRepository;
 use App\Repository\Eloquent\RoleRepository;
 use App\Repository\Eloquent\UserRepository;
 use App\Repository\EloquentRepositoryInterface;
+use App\Repository\EventRepositoryInterface;
 use App\Repository\FamilyRepositoryInterface;
 use App\Repository\NationalityRepositoryInterface;
 use App\Repository\RoleRepositoryInterface;
@@ -34,6 +36,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(NationalityRepositoryInterface::class, NationalityRepository::class);
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+        $this->app->bind(EventRepositoryInterface::class, EventRepository::class);
     }
 
     /**

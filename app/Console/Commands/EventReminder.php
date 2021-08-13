@@ -2,9 +2,13 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Event;
 use App\Models\User;
+use App\Notifications\Api\RemindersNotification;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Console\Command;
+use Notification;
 
 class EventReminder extends Command
 {
@@ -39,28 +43,17 @@ class EventReminder extends Command
      */
     public function handle()
     {
-        $words = [
-            'aberration' => 'a state or condition markedly different from the norm',
-            'convivial' => 'occupied with or fond of the pleasures of good company',
-            'diaphanous' => 'so thin as to transmit light',
-            'elegy' => 'a mournful poem; a lament for the dead',
-            'ostensible' => 'appearing as such but not necessarily so'
-        ];
+        $events=Event::all();
 
-        // Finding a random word
-        $key = array_rand($words);
-        $value = $words[$key];
-
-        $users = User::all();
-        foreach ($users as $user) {
-            Mail::raw("{$key} -> {$value}", function ($mail) use ($user) {
-                $mail->from('yan946006@gmail.com');
-                $mail->to($user->email)
-                    ->subject('Word of the Day');
-            });
+        foreach ($events as $event){
+            foreach ($event->reminder_dates as $date){
+                if($date->format('y-m-d') == Carbon::now()->format('y-m-d')){
+                    Notification::send($event->user, new RemindersNotification($event));
+                }
+            }
         }
 
-        $this->info('Word of the Day sent to All Users');
+        $this->info('Reminder of the Day sent to All Users');
     }
 
 }

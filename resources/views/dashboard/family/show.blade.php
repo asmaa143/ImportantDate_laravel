@@ -27,19 +27,19 @@
                                 <h2>
                                     Family Dates
                                 </h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                           role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="material-icons">more_vert</i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);">Action</a></li>
-                                            <li><a href="javascript:void(0);">Another action</a></li>
-                                            <li><a href="javascript:void(0);">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+{{--                                <ul class="header-dropdown m-r--5">--}}
+{{--                                    <li class="dropdown">--}}
+{{--                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"--}}
+{{--                                           role="button" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                            <i class="material-icons">more_vert</i>--}}
+{{--                                        </a>--}}
+{{--                                        <ul class="dropdown-menu pull-right">--}}
+{{--                                            <li><a href="javascript:void(0);">Action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Another action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Something else here</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
                             </div>
                             @if($family->dates->count() > 0)
                                 <div class="body">
@@ -92,19 +92,19 @@
                                     Family Photo
 
                                 </h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                           role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="material-icons">more_vert</i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);">Action</a></li>
-                                            <li><a href="javascript:void(0);">Another action</a></li>
-                                            <li><a href="javascript:void(0);">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+{{--                                <ul class="header-dropdown m-r--5">--}}
+{{--                                    <li class="dropdown">--}}
+{{--                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"--}}
+{{--                                           role="button" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                            <i class="material-icons">more_vert</i>--}}
+{{--                                        </a>--}}
+{{--                                        <ul class="dropdown-menu pull-right">--}}
+{{--                                            <li><a href="javascript:void(0);">Action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Another action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Something else here</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
                             </div>
                             @if($family->photos->count() > 0)
                                 <div class="body">
@@ -117,11 +117,11 @@
                                                         width="210px">
                                                     <div class="caption">
                                                         <h3>Personal Card</h3>
-                                                        <p>
-                                                            <a href="javascript:void(0);"
-                                                               class="btn btn-primary waves-effect"
-                                                               role="button">BUTTON</a>
-                                                        </p>
+{{--                                                        <p>--}}
+{{--                                                            <a href="javascript:void(0);"--}}
+{{--                                                               class="btn btn-primary waves-effect"--}}
+{{--                                                               role="button">BUTTON</a>--}}
+{{--                                                        </p>--}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -135,11 +135,11 @@
                                                     <div class="caption">
                                                         <h3>Birth</h3>
 
-                                                        <p>
-                                                            <a href="javascript:void(0);"
-                                                               class="btn btn-primary waves-effect"
-                                                               role="button">BUTTON</a>
-                                                        </p>
+{{--                                                        <p>--}}
+{{--                                                            <a href="javascript:void(0);"--}}
+{{--                                                               class="btn btn-primary waves-effect"--}}
+{{--                                                               role="button">BUTTON</a>--}}
+{{--                                                        </p>--}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,11 +152,11 @@
                                                         width="210px">
                                                     <div class="caption">
                                                         <h3>Residence</h3>
-                                                        <p>
-                                                            <a href="javascript:void(0);"
-                                                               class="btn btn-primary waves-effect"
-                                                               role="button">BUTTON</a>
-                                                        </p>
+{{--                                                        <p>--}}
+{{--                                                            <a href="javascript:void(0);"--}}
+{{--                                                               class="btn btn-primary waves-effect"--}}
+{{--                                                               role="button">BUTTON</a>--}}
+{{--                                                        </p>--}}
                                                     </div>
                                                 </div>
                                             </div>

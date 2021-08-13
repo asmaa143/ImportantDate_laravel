@@ -27,19 +27,19 @@
                                 <h2>
                                     User Dates
                                 </h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                           role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="material-icons">more_vert</i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);">Action</a></li>
-                                            <li><a href="javascript:void(0);">Another action</a></li>
-                                            <li><a href="javascript:void(0);">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+{{--                                <ul class="header-dropdown m-r--5">--}}
+{{--                                    <li class="dropdown">--}}
+{{--                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"--}}
+{{--                                           role="button" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                            <i class="material-icons">more_vert</i>--}}
+{{--                                        </a>--}}
+{{--                                        <ul class="dropdown-menu pull-right">--}}
+{{--                                            <li><a href="javascript:void(0);">Action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Another action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Something else here</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
                             </div>
                             @if($user->dates->count() > 0)
                                 <div class="body">
@@ -92,19 +92,19 @@
                                     User Photo
 
                                 </h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                           role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="material-icons">more_vert</i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);">Action</a></li>
-                                            <li><a href="javascript:void(0);">Another action</a></li>
-                                            <li><a href="javascript:void(0);">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+{{--                                <ul class="header-dropdown m-r--5">--}}
+{{--                                    <li class="dropdown">--}}
+{{--                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"--}}
+{{--                                           role="button" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                            <i class="material-icons">more_vert</i>--}}
+{{--                                        </a>--}}
+{{--                                        <ul class="dropdown-menu pull-right">--}}
+{{--                                            <li><a href="javascript:void(0);">Action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Another action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Something else here</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
                             </div>
                             @if($user->photos->count() > 0)
                                 <div class="body">
@@ -117,11 +117,11 @@
                                                         width="210px">
                                                     <div class="caption">
                                                         <h3>Personal Card</h3>
-                                                        <p>
-                                                            <a href="javascript:void(0);"
-                                                               class="btn btn-primary waves-effect"
-                                                               role="button">BUTTON</a>
-                                                        </p>
+{{--                                                        <p>--}}
+{{--                                                            <a href="javascript:void(0);"--}}
+{{--                                                               class="btn btn-primary waves-effect"--}}
+{{--                                                               role="button">BUTTON</a>--}}
+{{--                                                        </p>--}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -135,11 +135,11 @@
                                                     <div class="caption">
                                                         <h3>Birth</h3>
 
-                                                        <p>
-                                                            <a href="javascript:void(0);"
-                                                               class="btn btn-primary waves-effect"
-                                                               role="button">BUTTON</a>
-                                                        </p>
+{{--                                                        <p>--}}
+{{--                                                            <a href="javascript:void(0);"--}}
+{{--                                                               class="btn btn-primary waves-effect"--}}
+{{--                                                               role="button">BUTTON</a>--}}
+{{--                                                        </p>--}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -152,11 +152,11 @@
                                                         width="210px">
                                                     <div class="caption">
                                                         <h3>Residence</h3>
-                                                        <p>
-                                                            <a href="javascript:void(0);"
-                                                               class="btn btn-primary waves-effect"
-                                                               role="button">BUTTON</a>
-                                                        </p>
+{{--                                                        <p>--}}
+{{--                                                            <a href="javascript:void(0);"--}}
+{{--                                                               class="btn btn-primary waves-effect"--}}
+{{--                                                               role="button">BUTTON</a>--}}
+{{--                                                        </p>--}}
                                                     </div>
                                                 </div>
                                             </div>
@@ -177,19 +177,19 @@
                                 <h2>
                                     USER FAMILY
                                 </h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
-                                           role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="material-icons">more_vert</i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="javascript:void(0);">Action</a></li>
-                                            <li><a href="javascript:void(0);">Another action</a></li>
-                                            <li><a href="javascript:void(0);">Something else here</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+{{--                                <ul class="header-dropdown m-r--5">--}}
+{{--                                    <li class="dropdown">--}}
+{{--                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"--}}
+{{--                                           role="button" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                            <i class="material-icons">more_vert</i>--}}
+{{--                                        </a>--}}
+{{--                                        <ul class="dropdown-menu pull-right">--}}
+{{--                                            <li><a href="javascript:void(0);">Action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Another action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Something else here</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
                             </div>
                             <div class="body">
                                 <div class="list-group">
@@ -204,6 +204,44 @@
                                     @endif
                                     @if($user->has_servant===1)
                                         <a href="{{route('admin.family-create',$user->id)}}" class="list-group-item">Create servant Date</a>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Disabled Items -->
+
+
+
+                <!-- Disabled Items -->
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2>
+                                    USER EVENTS
+                                </h2>
+                                <ul class="header-dropdown m-r--5">
+                                    <li class="dropdown">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"
+                                           role="button" aria-haspopup="true" aria-expanded="false">
+                                            <i class="material-icons">more_vert</i>
+                                        </a>
+                                        <ul class="dropdown-menu pull-right">
+                                            <li><a href="{{route('admin.event-create',$user->id)}}">Create Event</a></li>
+{{--                                            <li><a href="javascript:void(0);">Another action</a></li>--}}
+{{--                                            <li><a href="javascript:void(0);">Something else here</a></li>--}}
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="body">
+                                <div class="list-group">
+                                    @if($user->events->count() > 0)
+                                        @foreach ($user->events as $index => $event)
+                                            {{ $index == 0 ? '' : "" }}  {{ $event->name  }} {{$event->date }} <br><br>
+                                        @endforeach
                                     @endif
                                 </div>
                             </div>

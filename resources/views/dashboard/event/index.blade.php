@@ -31,18 +31,18 @@
                                 <h2>
                                     {{__('Events Table')}}
                                 </h2>
-                                <ul class="header-dropdown m-r--5">
-                                    <li class="dropdown">
-                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="material-icons">more_vert</i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href=""></a></li>
-                                            {{--                                            <li><a href="javascript:void(0);">Another action</a></li>--}}
-                                            {{--                                            <li><a href="javascript:void(0);">Something else here</a></li>--}}
-                                        </ul>
-                                    </li>
-                                </ul>
+{{--                                <ul class="header-dropdown m-r--5">--}}
+{{--                                    <li class="dropdown">--}}
+{{--                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">--}}
+{{--                                            <i class="material-icons">more_vert</i>--}}
+{{--                                        </a>--}}
+{{--                                        <ul class="dropdown-menu pull-right">--}}
+{{--                                            <li><a href=""></a></li>--}}
+{{--                                            --}}{{--                                            <li><a href="javascript:void(0);">Another action</a></li>--}}
+{{--                                            --}}{{--                                            <li><a href="javascript:void(0);">Something else here</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
                             </div>
                             <div class="body">
                                 <div class="table-responsive">
@@ -68,9 +68,9 @@
                                         <tbody>
                                         @foreach ($events as $event)
                                             <tr>
-                                                <td>{{$event->name}}</td>
-                                                <td>{{$event->date}}</td>
-                                                <td>{{$event->user->first_name}} {{$event->user->last_name}}</td>
+                                                <td>{{$event->name ?? ''}}</td>
+                                                <td>{{$event->date ?? ''}}</td>
+                                                <td>{{$event->user->first_name ?? ''}} {{$event->user->last_name ?? ''}}</td>
                                                 <td>{{$event->dateType->name ?? ''}}</td>
                                                 <td class="text-center">
                                                     <a style="text-decoration:none" href="{{route('admin.event.edit',$event->id)}}">

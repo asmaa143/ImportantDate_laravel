@@ -28,7 +28,12 @@ Route::group(['middleware'=>['api','changeLang','auth:sanctum']],function (){
     Route::apiResource('user','UserAPIController');
     Route::apiResource('family','FamilyApiController');
     Route::get('event','EventApiController@getAll');
+    Route::post('event/store','EventApiController@store');
     Route::post("logout",'AuthApiController@logout');
+
+    Route::post('/store-token', 'NotificationApiController@storeToken');
+    Route::post('/send-api-notification', 'NotificationApiController@sendApiNotification');
+    Route::get('test','NotificationApiController@sendWifeNotification');
 
 });
 

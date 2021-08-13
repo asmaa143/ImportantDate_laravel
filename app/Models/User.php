@@ -37,6 +37,7 @@ class User extends Authenticatable
         'has_sons',
         'has_driver',
         'has_servant',
+        'device_key',
 
     ];
 

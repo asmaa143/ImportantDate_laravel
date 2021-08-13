@@ -38,5 +38,6 @@ Route::get('families/create/{id}','FamilyController@create_family')->name('famil
 Route::resource('date-setup','DateSetupController');
 Route::resource('page','PageController');
 Route::resource('event','EventController');
+Route::get('event/create/{id}','EventController@create_event')->name('event-create');
 
 Route::get('lang/{locale}', 'LocalizationController@index')->name('lang');
