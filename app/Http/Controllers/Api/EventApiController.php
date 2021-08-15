@@ -29,9 +29,9 @@ class EventApiController extends Controller
 
     public function store(Request $request){
         $event=Event::create($request->all());
-        $email= $event->user->email;
-        Mail::to($email)
-            ->later($event->reminder_start,new ReminderEvent());
+//        $email= $event->user->email;
+//        Mail::to($email)
+//            ->later($event->reminder_start,new ReminderEvent());
         return $event;
     }
 }

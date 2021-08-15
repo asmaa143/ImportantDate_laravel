@@ -28,6 +28,7 @@ Route::group(['middleware'=>['api','changeLang','auth:sanctum']],function (){
     Route::apiResource('user','UserAPIController');
     Route::apiResource('family','FamilyApiController');
     Route::get('event','EventApiController@getAll');
+    Route::get('search/{event}','MainApiController@search');
     Route::post('event/store','EventApiController@store');
     Route::post("logout",'AuthApiController@logout');
 

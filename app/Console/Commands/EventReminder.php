@@ -43,6 +43,7 @@ class EventReminder extends Command
      */
     public function handle()
     {
+
         $events=Event::all();
 
         foreach ($events as $event){
@@ -53,7 +54,7 @@ class EventReminder extends Command
             }
         }
 
-        $this->info('Reminder of the Day sent to All Users');
+     $this->info('Reminder of the Day sent to All Users');
     }
 
 }
